@@ -1,18 +1,20 @@
 # TriviaGame
 This game will test your knowledge of ???. You'll only have 30 seconds to answer each question. When you finish, the game will tell you how many you got correct.
 
-1. When was the last confirmed human death attributed to a gila monster?
+1. How many species of rattlesnake live in Arizona?
+13
+36
+4
+7
+
+2. When was the last confirmed human death attributed to a gila monster?
 
 1939
 2008
 1989
 2017
 
-2. How many species of rattlesnake live in Arizona?
-13
-36
-4
-7
+They're actually pretty sluggish and shy, and it's believed those fatalies resulted from old-timey medical treatment, not the bites themselves. Still, they say the bite is pretty painful.
 
 3. What should you do if you hear a rattlesnake rattle?
 Freeze and carefully determine where it's coming from, then slowly step away from the snake.
@@ -47,3 +49,8 @@ alt: They'll chase you up to half a mile. They are bastards.
 
 7. What do experts recommend you do if stung by a tarantula hawk?
 Lie down and start screaming.
+Drive to the hospital.
+Pour water on it.
+Get some tweezers and remove the stinger.
+
+8. What should you do if you find a Sonoran Desert Toad (formerly the Colorado River Toad) in your dog's mouth?
