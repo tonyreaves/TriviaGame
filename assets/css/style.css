@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url("assets/images/sand-background.png");
+    background-image: url("../images/sand-background.jpg");
     background-color: #cccccc;
     font-family: 'Francois One', sans-serif;
 
@@ -17,6 +17,14 @@ body {
      height:600px;
      background: white;
      border:solid black 0.5px;
+     margin: 5px;
+     padding:12px;
+     font-size: 24px;
+ }
+
+ h1 {
+     font-size: 50px;
+     margin-left:5px;
  }
 
  @media (max-width: 640px) {

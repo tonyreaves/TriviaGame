@@ -4,7 +4,7 @@
 var questionArray = [
     {question: "How many species of rattlesnake live in Arizona?",
     answers:
-    [{a:"13",
+    [{answer:"13",
     correct:true},
     {b:"36",
     correct:false},
@@ -108,8 +108,9 @@ wrong=0;
 unanswered=0;
 
 //for loop for questions
-for (i=0; i<questionArray.length; i++) {
-$("#questions").text(questionArray[i].question)
+for (var i=0; i<questionArray.length; i++) {
+$("#questions").text(questionArray[i].question);
+$("#button1").text(questionArray[i].answers.a);
 console.log(questionArray[i].question);
 };
 console.log(correct);
