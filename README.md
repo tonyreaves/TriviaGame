@@ -1,6 +1,8 @@
 # TriviaGame
 This game will test your knowledge of ???. You'll only have 30 seconds to answer each question. When you finish, the game will tell you how many you got correct.
 
+It uses an array of objects as the questions.
+
 1. How many species of rattlesnake live in Arizona?
 13
 36
@@ -53,4 +55,8 @@ Drive to the hospital.
 Pour water on it.
 Get some tweezers and remove the stinger.
 
-8. What should you do if you find a Sonoran Desert Toad (formerly the Colorado River Toad) in your dog's mouth?
+8. What should you do if your dog gets ahold of a Sonoran Desert Toad (formerly the Colorado River Toad)?
+Get a garden hose and wash the poisonous slime out of the dog's mouth, then get to a vet.
+Rush straight to the vet.
+Make your dog eat the whole thing, to teach Fido a lesson.
+Yell at your dog.

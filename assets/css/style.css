@@ -1,0 +1,27 @@
+#snake {
+    position: absolute;
+    top:50px;
+    right: 100px;
+}
+
+body {
+    background-image: url("assets/images/sand-background.png");
+    background-color: #cccccc;
+    font-family: 'Francois One', sans-serif;
+
+ }
+
+ .thequiz{
+     clear:both;
+     width:80%;
+     height:600px;
+     background: white;
+     border:solid black 0.5px;
+ }
+
+ @media (max-width: 640px) {
+    #snake {
+      position:relative;
+      bottom:1px;
+    }
+  }
