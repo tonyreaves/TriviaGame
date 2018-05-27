@@ -4,7 +4,7 @@
 var questionArray = [
     {question: "How many species of rattlesnake live in Arizona?",
     answers:
-    [{answer:"13",
+    [{a:"13",
     correct:true},
     {b:"36",
     correct:false},
@@ -40,7 +40,7 @@ var questionArray = [
  
     {question:"What should you do if you're bitten by a rattlesnake?",
     answers:
-    [{a:"Stay calm and try not to let the venom circulate through y[our body. Keep the affected limb lower than your heart.",
+    [{a:"Stay calm and try not to let the venom circulate through your body. Keep the affected limb lower than your heart.",
     correct:true},
     {b:"Run full bore toward the nearest hospital.",
     correct:false},
@@ -109,8 +109,11 @@ unanswered=0;
 
 //for loop for questions
 for (var i=0; i<questionArray.length; i++) {
-$("#questions").text(questionArray[i].question);
-$("#button1").text(questionArray[i].answers.a);
+$("#questions").html(questionArray[i].question);
+$("#button1").html(questionArray[3].answers[0].a);
+$("#button2").html(questionArray[3].answers[1].b);
+$("#button3").html(questionArray[3].answers[2].c);
+$("#button4").html(questionArray[3].answers[3].d);
 console.log(questionArray[i].question);
 };
 console.log(correct);
