@@ -186,17 +186,18 @@ document.addEventListener("DOMContentLoaded", function game() {
     var right = 0;
     var wrong = 0;
     var unanswered = 0;
-    var seconds = 30;
+    var seconds;
     var yourAnswer;
     $("#countdown").html(seconds);
 
+    //function to check if entered answer is correct
     function check() {
         if (answerArray[i].answers[this] = (correct = true)) {
             right++;
         }
     }
 
-    setTimeout(function (seconds) { unanswered++ }, 3000);
+    //setTimeout(function (seconds) { unanswered++ }, 3000);
 
 
     //for loop for questions
@@ -205,18 +206,27 @@ document.addEventListener("DOMContentLoaded", function game() {
         for (var x = 0; x < questionArray[i].answers.length; x++) {
             console.log(questionArray[i].answers[x]);
             $("#button1").html(questionArray[i].answers[0].answer);
-            console.log({ i })
             console.log(questionArray[i].answers[0].answer);
             $("#button2").html(questionArray[i].answers[1].answer);
             $("#button3").html(questionArray[i].answers[2].answer);
             $("#button4").html(questionArray[i].answers[3].answer);
 
         }
+
+        //setTimeout(function (seconds) { unanswered++ }, 3000);
+        var seconds = 30;
+        var tm = setInterval(countDown, 30000)
+        function countDown() {
+            seconds--;
+            if(seconds == 0) {
+                clearInterval(tm);
+                unanswered++;
+            }
+            console.log(seconds);
+            $("#countdown").html(seconds);
+        }
         $("#answerButton").click(
         );
-        $("#countdown").html(seconds);
 
-
-        console.log(questionArray[i].question);
     };
 })
