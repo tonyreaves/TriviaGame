@@ -186,47 +186,95 @@ document.addEventListener("DOMContentLoaded", function game() {
     var right = 0;
     var wrong = 0;
     var unanswered = 0;
-    var seconds;
+    var seconds = 30;
+    var secs = 5;
     var yourAnswer;
-    $("#countdown").html(seconds);
+    var i = 0;
 
     //function to check if entered answer is correct
-    function check() {
-        if (answerArray[i].answers[this] = (correct = true)) {
-            right++;
+    // function check() {
+    //     if (answerArray[i].answers[this] = (correct = true)) {
+    //         right++;
+    //     }
+    // }
+
+    //5 second countdown
+    var posttm = (secs, 1000);
+    function postCountdown() {
+        $("#answer").html(questionArray[i].post)
+
+        if (secs == 0) {
+            clearInterval(posttm);
+            i++;
+            seconds = 30;
+            countDown();
+        }
+        else {
+            secs--;
         }
     }
 
-    //setTimeout(function (seconds) { unanswered++ }, 3000);
-
-
-    //for loop for questions
+    //for loop for question
     for (var i = 0; i < questionArray.length; i++) {
         $("#questions").html(questionArray[i].question);
-        for (var x = 0; x < questionArray[i].answers.length; x++) {
-            console.log(questionArray[i].answers[x]);
-            $("#button1").html(questionArray[i].answers[0].answer);
-            console.log(questionArray[i].answers[0].answer);
-            $("#button2").html(questionArray[i].answers[1].answer);
-            $("#button3").html(questionArray[i].answers[2].answer);
-            $("#button4").html(questionArray[i].answers[3].answer);
+        console.log(questionArray[i].question);
+        $("#button1").html(questionArray[i].answers[0].answer);
+        $("#button2").html(questionArray[i].answers[1].answer);
+        $("#button3").html(questionArray[i].answers[2].answer);
+        $("#button4").html(questionArray[i].answers[3].answer);
+        //makes buttons check for true status
+        $("answerButton").eq(questionArray[i].answers).on("click", { value: questionArray[i].answers }, function (event) {
+            if (questionArray[i].answers.correct = true) {
+                right++;
+                postCountdown();
+                console.log(right);
+            }
+            else if (questionArray[i].answers[x].correct = false) {
+                wrong++;
+                postCountdown();
+                console.log(wrong);
+            }
 
-        }
+        });
 
-        //setTimeout(function (seconds) { unanswered++ }, 3000);
-        var seconds = 30;
-        var tm = setInterval(countDown, 30000)
+        //30 second countdown
+        var tm = setInterval(seconds, 1000)
         function countDown() {
-            seconds--;
-            if(seconds == 0) {
+            $("#answer").empty();
+            if (seconds === 0) {
                 clearInterval(tm);
                 unanswered++;
+                secs = 5;
+                postCountdown();
             }
-            console.log(seconds);
-            $("#countdown").html(seconds);
-        }
-        $("#answerButton").click(
-        );
+            else {
+                seconds--;
+                $("#countdown").html(seconds = "seconds left");
+                console.log(seconds);
+                $("#countdown").html(seconds);
+            }
 
-    };
-})
+
+            // $("#answerButton").click(
+            //     if (questionArray[i].answers[x].correct=true) {
+            //        right++;
+            //        postCountdown();
+            //     }
+            //     else if (questionArray[i].answers[x].correct=false) {
+            //         wrong++;
+            //         postCountdown();
+            //     }
+        }
+
+countDown();
+
+
+        //make 30 second count visible
+        //make countdown trigger var changes, appearance of "post"
+        //set click on to check answer
+        //make 5 second countdown trigger next question
+        //make questions appear in divs, answers in buttons
+
+    }
+}
+, )
