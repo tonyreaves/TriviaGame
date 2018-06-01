@@ -4,6 +4,7 @@
 var questionArray = [
     {
         question: "How many species of rattlesnake live in Arizona?",
+        answer:"A. 13",
         answers:
             [{
                 answer: "A. 13",
@@ -26,6 +27,7 @@ var questionArray = [
 
     {
         question: "When was the last confirmed human death attributed to a gila monster?",
+        answer:"B. 1939",
         answers:
             [{
                 answer: "A. 2008",
@@ -48,6 +50,7 @@ var questionArray = [
 
     {
         question: "What should you do if you hear a rattlesnake rattle?",
+        answer:"C. Freeze and carefully determine where it's coming from, then slowly step away from the snake.",
         answers:
             [{
                 answer: "A. Call your family and tell them you love them.",
@@ -70,6 +73,7 @@ var questionArray = [
 
     {
         question: "What should you do if you're bitten by a rattlesnake?",
+        answer:"A. Stay calm and try not to let the venom circulate through your body. Keep the affected limb lower than your heart.",
         answers:
             [{
                 answer: "A. Stay calm and try not to let the venom circulate through your body. Keep the affected limb lower than your heart.",
@@ -92,6 +96,7 @@ var questionArray = [
 
     {
         question: "Where do bark scorpions typically hide indoors?",
+        answer:"D. All of the above.",
         answers:
             [{
                 answer: "A. Sinks",
@@ -114,6 +119,7 @@ var questionArray = [
 
     {
         question: "How are Africanized bees differnet from other bees in North America?",
+        answer:"C. They are more aggressive and will chase you.",
         answers:
             [{
                 answer: "A. They don't pollinate plants.",
@@ -136,6 +142,7 @@ var questionArray = [
 
     {
         question: "What should you do if your dog gets ahold of a Sonoran Desert Toad (formerly the Colorado River Toad)?",
+        answer:"A. Get a garden hose and wash the poisonous slime out of the dog's mouth, then get to a vet.",
         answers:
             [{
                 answer: "A. Get a garden hose and wash the poisonous slime out of the dog's mouth, then get to a vet.",
@@ -158,6 +165,7 @@ var questionArray = [
 
     {
         question: "What do experts recommend you do if stung by a tarantula hawk?",
+        answer:"B. Lie down and start screaming.",
         answers:
             [{
                 answer: "A. Drive to the hospital.",
@@ -190,84 +198,83 @@ document.addEventListener("DOMContentLoaded", function game() {
     var secs = 5;
     var yourAnswer;
 
-    //function to check if entered answer is correct
-    // function check() {
-    //     if (answerArray[i].answers[this] = (correct = true)) {
-    //         right++;
-    //     }
-    // }
-
     //5 second countdown
     var posttm = setTimeout(secs, 1000);
     function postCountdown() {
-        $("#answer").html(questionArray[i].post)
+        $("#answer").html(questionArray[currentQuestionIndex].post)
 
         if (secs == 0) {
             clearInterval(posttm);
-            i++;
             seconds = 30;
             countDown();
+
+        }
+        else if (currentQuestionIndex == questionArray.length) {
+            $("#questions").empty();
+            $(".answerButton").empty();
+            $("#answer").empty();
+            $("#questions").html("Right: " + right + ".  Wrong: " + wrong + ". Unanswered: " + unanswered + ".")
         }
         else {
             secs--;
         }
+        currentQuestionIndex++;
+        setupQuestions(currentQuestionIndex);
     }
 
-    //for loop for question
-    for (var i = 0; i < 1; i++) {
+    function setupQuestions(questionIndex) {
+        $("#questions").html(questionArray[questionIndex].question);
+        $("#button1").html(questionArray[questionIndex].answers[0].answer);
+        $("#button2").html(questionArray[questionIndex].answers[1].answer);
+        $("#button3").html(questionArray[questionIndex].answers[2].answer);
+        $("#button4").html(questionArray[questionIndex].answers[3].answer);
+    };
 
-        $("#questions").html(questionArray[i].question);
-         console.log(questionArray[i].question);
-        $("#button1").html(questionArray[i].answers[0].answer);
-        console.log('dccdcdcdcvrvrv',questionArray[i].answers[0].answer)
-        $("#button2").html(questionArray[i].answers[1].answer);
-        $("#button3").html(questionArray[i].answers[2].answer);
-        $("#button4").html(questionArray[i].answers[3].answer);
-        //makes buttons check for true status
-        $("#button1").on("click", function (event) {
-            if(questionArray[i].)
-            console.log($("#button1").text());
-            // if (questionArray[i].answers.correct == true) {
-            //     right++;
-            //     postCountdown();
-            //     console.log(right);
-            // }
-            // else if (questionArray[i].answers[x].correct == false) {
-            //     wrong++;
-            //     postCountdown();
-            //     console.log(wrong);
-            // }
+    var currentQuestionIndex = 0;
+    setupQuestions(currentQuestionIndex);
 
-        });
-        $("#button2").html(questionArray[i].answers[1].answer);
-        //30 second countdown
-        var tm = setTimeout(seconds, 1000)
-        function countDown() {
-            $("#answer").empty();
-            if (seconds === 0) {
-                clearTimeout(tm);
-                unanswered++;
-                secs = 5;
-                postCountdown();
-            }
-            else {
-                seconds--;
-                $("#countdown").html(seconds = "seconds left");
-                console.log(seconds);
-                $("#countdown").html(seconds);
-            }
-
-
-            // $("#answerButton").click(
-            //     if (questionArray[i].answers[x].correct=true) {
-            //        right++;
-            //        postCountdown();
-            //     }
-            //     else if (questionArray[i].answers[x].correct=false) {
-            //         wrong++;
-            //         postCountdown();
-            //     }
+    $(".answerButton").on("click", function (event) {
+        var userAnswer = $(event.target).text();
+        if(questionArray[currentQuestionIndex].answer == userAnswer) {
+            right++;
+            postCountdown();
+            console.log("Right: " + right);
         }
+        else {
+            wrong++;
+            postCountdown();
+            console.log("Wrong: " + wrong);
+        }
+    })
+
+    var tm = setTimeout(seconds, 1000)
+    function countDown() {
+        $("#answer").empty();
+        if (seconds === 0) {
+            clearTimeout(tm);
+            unanswered++;
+            secs = 5;
+            // postCountdown();
+        }
+        else {
+            seconds--;
+            $("#countdown").html(seconds = "seconds left");
+            console.log(seconds);
+            $("#countdown").html(seconds);
+        }
+    }
+    
+    // for (var i = 0; i < 1; i++) {
+
+    //     $("#questions").html(questionArray[i].question);
+    //      console.log(questionArray[i].question);
+    //     $("#button1").html(questionArray[i].answers[0].answer);
+    //     $("#button2").html(questionArray[i].answers[1].answer);
+    //     $("#button3").html(questionArray[i].answers[2].answer);
+    //     $("#button4").html(questionArray[i].answers[3].answer);
+
+        //30 second countdown
+
 
 countDown();
 
@@ -279,5 +286,4 @@ countDown();
         //make questions appear in divs, answers in buttons
 
     }
-}
 , )
