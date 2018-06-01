@@ -214,29 +214,32 @@ document.addEventListener("DOMContentLoaded", function game() {
     }
 
     //for loop for question
-    for (var i = 0; i < questionArray.length; i++) {
+    for (var i = 0; i < 1; i++) {
+
         $("#questions").html(questionArray[i].question);
-        console.log(questionArray[i].question);
+         console.log(questionArray[i].question);
         $("#button1").html(questionArray[i].answers[0].answer);
-        console.log(questionArray[i].answers[0].correct)
+        console.log('dccdcdcdcvrvrv',questionArray[i].answers[0].answer)
         $("#button2").html(questionArray[i].answers[1].answer);
         $("#button3").html(questionArray[i].answers[2].answer);
         $("#button4").html(questionArray[i].answers[3].answer);
         //makes buttons check for true status
-        $("answerButton").eq(questionArray[i].answers).on("click", { value: questionArray[i].answers }, function (event) {
-            if (questionArray[i].answers.correct == true) {
-                right++;
-                postCountdown();
-                console.log(right);
-            }
-            else if (questionArray[i].answers[x].correct == false) {
-                wrong++;
-                postCountdown();
-                console.log(wrong);
-            }
+        $("#button1").on("click", function (event) {
+            if(questionArray[i].)
+            console.log($("#button1").text());
+            // if (questionArray[i].answers.correct == true) {
+            //     right++;
+            //     postCountdown();
+            //     console.log(right);
+            // }
+            // else if (questionArray[i].answers[x].correct == false) {
+            //     wrong++;
+            //     postCountdown();
+            //     console.log(wrong);
+            // }
 
         });
-
+        $("#button2").html(questionArray[i].answers[1].answer);
         //30 second countdown
         var tm = setTimeout(seconds, 1000)
         function countDown() {
